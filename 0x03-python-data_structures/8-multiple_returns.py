@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def multiple_returns(i):
-    if len(i) == 0:
-        return None
+    if i != '':
+        f_c = i[0]
     else:
-        return (len(i), i[0])
+        f_c = None
+    return (len(i), i[0])
