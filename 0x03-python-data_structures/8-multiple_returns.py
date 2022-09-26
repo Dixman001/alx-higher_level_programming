@@ -4,4 +4,4 @@ def multiple_returns(i):
         f_c = i[0]
     else:
         f_c = None
-    return (len(i), i[0])
+    return (len(i), f_c)
