@@ -17,7 +17,6 @@ class Rectangle:
         self.width = width
         self.height = height
 
-
     @property
     def width(self):
         """retreives the width attribute"""
@@ -32,7 +31,6 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
 
-
     @property
     def height(self):
         """retreives the height attribute"""
@@ -46,7 +44,6 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
 
     def area(self):
         """returns the area of the rectangle"""
