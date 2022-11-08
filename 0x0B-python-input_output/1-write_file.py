@@ -2,7 +2,7 @@
 """this module writes a file"""
 
 
-def read_file(filename=""):
+def write_file(filename="", text=""):
     """this function writes file in utf-8"""
     with open(filename, "w", encoding="utf-8") as f:
         print(f.read(), end="")
