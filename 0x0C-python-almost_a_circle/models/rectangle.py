@@ -5,7 +5,6 @@
 class Rectangle(base):
     """ """
 
-
     def __init__(self, width, height, x=0, y=0, id=None):
         self.__width = width
         self.__height = height
@@ -64,3 +63,23 @@ class Rectangle(base):
         if value <= 0:
             raise ValueError("value must be  > 0")
         self.__y = value
+
+    def area(self):
+        """ """
+        return self.width * self.height
+
+    def display(self):
+        """ """
+        for y in range(self.y):
+            print("")
+        for row in range(self.__height):
+            for x in range(self.x):
+                print(" ", end="")
+            for column in range(self.__width):
+                print("#", end="")
+            print()
+
+    def __str__(self):
+        """ """
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
+                {self.__width}/{self.__height}"
