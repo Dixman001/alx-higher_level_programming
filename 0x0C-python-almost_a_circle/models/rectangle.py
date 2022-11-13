@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ """
+from models.base import Base
 
 
-class Rectangle(base):
+class Rectangle(Base):
     """ """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -12,7 +13,7 @@ class Rectangle(base):
         self.__y = y
         super().__init__(id)
 
-    @propery
+    @property
     def width(self):
         """ """
         return self.__width
@@ -54,7 +55,7 @@ class Rectangle(base):
     @property
     def y(self):
         """ """
-        return seelf.__y
+        return self.__y
 
     @y.setter
     def y(self, value):
@@ -108,7 +109,7 @@ class Rectangle(base):
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "id":
-                    if v is none:
+                    if v is None:
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = v

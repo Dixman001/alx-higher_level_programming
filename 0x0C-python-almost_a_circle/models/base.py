@@ -15,7 +15,7 @@ class Base:
         if id is not None:
             self.id = id
         else:
-            base.__nb_objects += 1
+            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     @classmethod
@@ -28,13 +28,13 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ """
-        fillename = cls.__name__ + ".json"
-        with open(filename, w) as jsonfile:
+        filename = cls.__name__ + ".json"
+        with open(filename, "w") as jsonfile:
             if list_objs is None:
                 jsonfile.write("[]")
             else:
                 list_dicts = [o.to_dictionary() for o in list_objs]
-                jsonfile.write(base.to_json_string(list_dicts))
+                jsonfile.write(Base.to_json_string(list_dicts))
 
     @staticmethod
     def from_json_string(json_string):
@@ -48,7 +48,7 @@ class Base:
         """ """
         if cls.__name__ == 'Rectangle':
             clone = cls(1, 1)
-        elif cls..__name__ == 'Square':
+        elif cls.__name__ == 'Square':
             clone = cls(1)
 
         clone.update(**dictionary)
@@ -59,9 +59,9 @@ class Base:
         """ """
         filename = str(cls.__name__) + ".json"
         try:
-            with open(filename, r) as jsonfile:
+            with open(filename, "r") as jsonfile:
                 list_dict = Base.from_json_string(jsonfile.read())
-                return [cls.create(**d) for d in list_dicts]
+                return [cls.create(**d) for d in list_dict]
         except IOError:
             return []
 
@@ -79,7 +79,7 @@ class Base:
                     fieldnames = ["id", "size", "x", "y"]
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 for obj in list_objs:
-                    wriite.writerow(obj.to_dictionary())
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
@@ -102,14 +102,14 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         """ """
-        turt = turtlle.Turtle()
+        turt = turtle.Turtle()
         turt.screen.bgcolor("#b7312c")
         turt.pensize(3)
         turt.shape("turtle")
 
         turt.color("#ffffff")
         for rect in list_rectangles:
-            turt..showturtle()
+            turt.showturtle()
             turt.up()
             turt.goto(rect.x, rect.y)
             turt.down()
